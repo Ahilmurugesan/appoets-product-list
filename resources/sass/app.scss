@@ -1,0 +1,218 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// E-commerce shop main content area
+$search-bar-height: 48px;
+//ecommerce header
+.ecommerce-header-items {
+    display: flex;
+    justify-content: space-between;
+
+    .result-toggler {
+        display: flex;
+        align-items: center;
+
+        // Sidebar toggler
+        .shop-sidebar-toggler {
+            padding-left: 0;
+
+            &:active,
+            &:focus {
+                outline: 0;
+            }
+
+            .navbar-toggler-icon {
+                height: auto;
+                i,
+                svg {
+                    color: $body-color;
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        // Search result title
+        .search-results {
+            font-weight: $font-weight-bold;
+            color: $headings-color;
+        }
+    }
+}
+
+// Product search bar
+.ecommerce-searchbar {
+    .input-group {
+        box-shadow: 0 2px 8px 0 rgba($black, 0.14);
+        border-radius: 0.3rem;
+    }
+}
+
+// Search bar
+.search-product,
+.input-group-text {
+    height: $search-bar-height;
+    border: none;
+    font-size: 0.95rem;
+    padding-left: 1.25rem;
+
+    &::placeholder {
+        font-size: 0.95rem;
+    }
+}
+
+// main Products
+.ecommerce-card {
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 25px 0 rgba($black, 0.25);
+    }
+
+    // ratings
+    .item-rating {
+        ul {
+            margin-bottom: 0;
+        }
+        svg,
+        i {
+            height: 1.143rem;
+            width: 1.143rem;
+            font-size: 1.143rem;
+        }
+    }
+
+    // Item name
+    .item-name {
+        margin-bottom: 0;
+        a {
+            font-weight: $font-weight-bolder;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .item-description {
+        font-size: 0.875rem;
+    }
+
+    // buttons style
+    .btn-wishlist,
+    .btn-cart {
+        span {
+            vertical-align: text-top;
+        }
+        i,
+        svg {
+            margin-right: 0.25rem;
+            vertical-align: text-top;
+            &.text-danger {
+                fill: $danger;
+            }
+        }
+    }
+}
+
+// margin for both views
+.grid-view,
+.list-view {
+    &:not(.wishlist-items) {
+        margin-top: 2rem;
+    }
+}
+
+// List View Specific style
+.list-view {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .ecommerce-card {
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+
+        // list view image
+        .item-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .card-body {
+            padding: 1.5rem 1rem;
+            border-right: 1px solid $border-color;
+            display: flex;
+            flex-direction: column;
+
+            // item name and ratings order
+            .item-wrapper {
+                order: 2;
+            }
+            .item-name {
+                order: 1;
+            }
+            // List view description
+            .item-description {
+                order: 3;
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            // ratings
+            .item-rating {
+                margin-bottom: 0.3rem;
+            }
+        }
+        // Common for list-view, checkout and wishlist
+        .item-company {
+            display: inline-flex;
+            font-weight: $font-weight-normal;
+            margin: 0.3rem 0 0.5rem;
+            font-size: 0.875rem;
+
+            .company-name {
+                font-weight: $font-weight-bolder;
+                margin-left: 0.25rem;
+            }
+        }
+
+        // price and btn area of list view
+        .item-options {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .item-wrapper {
+                position: relative;
+
+                .item-cost {
+                    .item-price {
+                        color: $primary;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            // Shipping free tag
+            .shipping {
+                margin-top: 0.75rem;
+            }
+            // List view btn spacing
+            .btn-wishlist,
+            .btn-cart {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
